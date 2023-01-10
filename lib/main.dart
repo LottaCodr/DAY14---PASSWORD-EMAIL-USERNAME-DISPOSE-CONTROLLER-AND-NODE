@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_page/auth_validators.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,6 +31,20 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  //Instantiate validator
+  final AuthValidators authValidator = AuthValidators();
+
+  // controllers
+  late TextEditingController emailController;
+  late TextEditingController usernameController;
+  late TextEditingController passwordController;
+  late TextEditingController confirmPasswordController;
+
+  //the focus nodes
+  late FocusNode emailFocusNode;
+  late FocusNode usernameFocusNode;
+  late FocusNode passwordFocusNode;
+  late FocusNode confirmpasswordFocusNode;
   @override
   Widget build(BuildContext context) {
     //defining the UI elements
