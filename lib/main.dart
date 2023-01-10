@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Login Godzilla',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Godzill Login'),
+          title: const Text('Godzilla Login'),
         ),
         body: const LoginPage(),
       ),
@@ -42,6 +42,7 @@ class _LoginPageState extends State<LoginPage> {
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))));
 
+// defining the passwordfield
     final passwordField = TextField(
       obscureText: true,
       decoration: InputDecoration(
@@ -51,6 +52,7 @@ class _LoginPageState extends State<LoginPage> {
               OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
     );
 
+// defining the login button properties
     final loginButton = Material(
         elevation: 5.0,
         borderRadius: BorderRadius.circular(30.0),
