@@ -45,12 +45,16 @@ class _LoginPageState extends State<LoginPage> {
   late FocusNode usernameFocusNode;
   late FocusNode passwordFocusNode;
   late FocusNode confirmpasswordFocusNode;
+
+  //to
   @override
   Widget build(BuildContext context) {
     //defining the UI elements
 
     final emailField = TextField(
         obscureText: false,
+        controller: emailController,
+        focusNode: emailFocusNode,
         decoration: InputDecoration(
             contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
             hintText: "Email",
@@ -60,6 +64,8 @@ class _LoginPageState extends State<LoginPage> {
 // defining the passwordfield
     final passwordField = TextField(
       obscureText: true,
+      controller: passwordController,
+      focusNode: passwordFocusNode,
       decoration: InputDecoration(
           contentPadding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
           hintText: "Password",
@@ -81,6 +87,35 @@ class _LoginPageState extends State<LoginPage> {
             textAlign: TextAlign.center,
           ),
         ));
+
+    @override
+    void initState() {
+      super.initState();
+      emailController = TextEditingController();
+      usernameController = TextEditingController();
+      passwordController = TextEditingController();
+
+      emailFocusNode = FocusNode();
+      usernameFocusNode = FocusNode();
+      passwordFocusNode = FocusNode();
+      confirmpasswordFocusNode = FocusNode();
+    }
+
+    //remove the content after all details has been comfirmed correct
+    @override
+    void dispose() {
+      super.dispose();
+
+      emailController.dispose();
+      usernameController.dispose();
+      passwordController.dispose();
+      confirmPasswordController.dispose();
+
+      emailFocusNode.dispose();
+      usernameFocusNode.dispose();
+      passwordFocusNode.dispose();
+      confirmpasswordFocusNode.dispose();
+    }
 
     return Scaffold(
       body: Center(
